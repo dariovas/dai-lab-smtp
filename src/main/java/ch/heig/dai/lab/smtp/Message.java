@@ -1,10 +1,10 @@
 package ch.heig.dai.lab.smtp;
 
-public class message {
+public class Message {
     private String subject;
     private String body;
 
-    message(String subject, String body){
+    Message(String subject, String body){
         this.subject = subject;
         this.body = body;
     }
