@@ -6,4 +6,15 @@ public class Victim {
     Victim(String email){
         this.email = email;
     }
+
+    public Victim() {
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 }
