@@ -8,6 +8,7 @@ public class Group {
     private final int MIN_GROUP_MEMBERS = 2;
     private final int MAX_GROUP_MEMBERS = 5;
     private List<Victim> members = new ArrayList<Victim>();
+    private List<Victim> receivers = new ArrayList<>();
     private Victim sender = new Victim();
 
     Group(List<Victim> victims){
@@ -22,6 +23,8 @@ public class Group {
         }
 
         sender = members.get(0);
+        receivers = members;
+        receivers.remove(0);
     }
 
     public List<Victim> getMembers() {
@@ -30,5 +33,17 @@ public class Group {
 
     public Victim getSender() {
         return sender;
+    }
+
+    public List<Victim> getReceiver() {return receivers;}
+
+    public static String getReceiversEmail(List<Victim> receivers){
+        String output = "";
+
+        for(Victim receiver : receivers){
+            output += receiver.getEmail() + ", ";
+        }
+
+        return output;
     }
 }
