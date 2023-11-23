@@ -24,5 +24,11 @@ public class Group {
         sender = members.get(0);
     }
 
+    public List<Victim> getMembers() {
+        return members;
+    }
 
+    public Victim getSender() {
+        return sender;
+    }
 }

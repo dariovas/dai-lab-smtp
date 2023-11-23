@@ -14,7 +14,5 @@ public class Main {
             groups.add(new Group(JsonReader.getVictim()));
         }
 
-
-        System.out.println("Hello world!");
     }
 }
