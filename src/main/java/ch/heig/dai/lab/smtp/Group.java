@@ -1,13 +1,14 @@
 package ch.heig.dai.lab.smtp;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public abstract class Group {
+public class Group {
     private final int MIN_GROUP_MEMBERS = 2;
     private final int MAX_GROUP_MEMBERS = 5;
-    private List<Victim> members = null;
-    private Victim sender;
+    private List<Victim> members = new ArrayList<Victim>();
+    private Victim sender = new Victim();
 
     Group(List<Victim> victims){
         Random rand = new Random();
@@ -22,6 +23,9 @@ public abstract class Group {
 
         sender = members.get(0);
     }
+
+
+
 
 
 }
