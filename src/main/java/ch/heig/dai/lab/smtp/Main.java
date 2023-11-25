@@ -7,17 +7,12 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) throws IOException {
         // Read command line arguments
-        if (args.length != 1) {
-            System.out.println("You need to provide 1 command line arguments: number of groups.");
-            System.exit(1);
-        }
+        var arguments = new CLIArgs(args);
 
-        int nbGroups = Integer.parseInt(args[0]);
-
-        SMTPClient client = new SMTPClient();
+        SMTPClient client = new SMTPClient(arguments.getServerHost(), arguments.getServerPort());
         List<Group> groups = new ArrayList<Group>();
 
-        for(int i = 0; i < nbGroups; ++i){
+        for(int i = 0; i < arguments.getNbGroups() && arguments.getMessageFilePath() != null && arguments.getVictimFilePath() != null; ++i){
             groups.add(new Group(JsonReader.getVictim(), JsonReader.getMessage()));
             client.send(groups.get(i).getSender(), groups.get(i).getReceiver(), groups.get(i).getMessage());
         }

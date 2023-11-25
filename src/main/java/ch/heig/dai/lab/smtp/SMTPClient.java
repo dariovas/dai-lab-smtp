@@ -7,9 +7,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SMTPClient {
-    final String SERVER_ADDRESS = "localhost";
-    final int SERVER_PORT = 1025;
+    final String SERVER_ADDRESS;
+    final int SERVER_PORT;
 
+    SMTPClient(String serverAddress, int serverPort){
+        this.SERVER_ADDRESS = serverAddress;
+        this.SERVER_PORT = serverPort;
+    }
     public void send(Victim sender, List<Victim> receivers, Message message) {
         try (Socket clientSocket = new Socket(SERVER_ADDRESS, SERVER_PORT)) {
             BufferedReader in = new BufferedReader(
