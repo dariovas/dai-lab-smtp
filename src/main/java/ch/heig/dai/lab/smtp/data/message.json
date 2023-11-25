@@ -6,5 +6,21 @@
   {
     "subject": "Test numéro 1",
     "body": "Hello this is a test message numéro 1."
+  },
+  {
+    "subject": "Test numéro 2",
+    "body": "Hello this is a test message numéro 2."
+  },
+  {
+    "subject": "Test numéro 3",
+    "body": "Hello this is a test message numéro 3."
+  },
+  {
+    "subject": "Test numéro 4",
+    "body": "Hello this is a test message numéro 4."
+  },
+  {
+    "subject": "Test numéro 5",
+    "body": "Hello this is a test message numéro 5."
   }
 ]
