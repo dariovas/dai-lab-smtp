@@ -1,5 +1,7 @@
 package ch.heig.dai.lab.smtp;
 
+import lombok.Getter;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -7,9 +9,13 @@ import java.util.Random;
 public class Group {
     private final int MIN_GROUP_MEMBERS = 2;
     private final int MAX_GROUP_MEMBERS = 5;
+
+    @Getter
     private List<Victim> members = new ArrayList<Victim>();
     private List<Victim> receivers = new ArrayList<>();
+    @Getter
     private Victim sender = new Victim();
+    @Getter
     private Message message = new Message();
 
     Group(List<Victim> victims, List<Message> messages){
@@ -28,18 +34,6 @@ public class Group {
         receivers.remove(0);
 
         message = messages.get(rand.nextInt(messages.size()));
-    }
-
-    public List<Victim> getMembers() {
-        return members;
-    }
-
-    public Victim getSender() {
-        return sender;
-    }
-
-    public Message getMessage(){
-        return message;
     }
 
     public List<Victim> getReceiver() {
