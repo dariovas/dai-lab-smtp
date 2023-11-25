@@ -1,24 +1,28 @@
 package ch.heig.dai.lab.smtp;
 
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.*;
-import java.nio.file.*;
-import java.util.ArrayList;
+
+import java.nio.file.Path;
 import java.util.List;
 
 public class JsonReader {
+    private final ObjectMapper objectMapper = new ObjectMapper();
 
-    public static List<Message> getMessage() throws IOException{
-        File file = new File("src/main/java/ch/heig/dai/lab/smtp/data/message.json");
-        ObjectMapper objectMapper = new ObjectMapper();
-        return objectMapper.readValue(file, new TypeReference<ArrayList<Message>>() {});
+    private <T> List<T> read(Path path, Class<T> contentClass) {
+        try {
+            return objectMapper.readValue(path.toFile(), objectMapper.getTypeFactory().constructParametricType(List.class, contentClass));
+        } catch (IOException e){
+            System.out.println("Cannot read the file");
+            throw new RuntimeException(e);
+        }
+    }
+    public List<Message> getMessage(Path path) {
+        return read(path, Message.class);
     }
 
-    public static List<Victim> getVictim() throws IOException{
-        File file = new File("src/main/java/ch/heig/dai/lab/smtp/data/victim.json");
-        ObjectMapper objectMapper = new ObjectMapper();
-        return objectMapper.readValue(file, new TypeReference<ArrayList<Victim>>() {});
+    public List<Victim> getVictim(Path path) {
+        return read(path, Victim.class);
     }
 
 }

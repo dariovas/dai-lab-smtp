@@ -3,6 +3,7 @@ package ch.heig.dai.lab.smtp;
 import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameter;
 import lombok.Getter;
+import java.nio.file.Path;
 
 @Getter
 public class CLIArgs {
@@ -18,14 +19,14 @@ public class CLIArgs {
             description = "Path to the file containing the list of victims",
             required = true
     )
-    private String victimFilePath;
+    private Path victimFilePath;
 
     @Parameter(
             names = {"-m", "--message-list"},
             description = "Path to the file containing the list of prank messages",
             required = true
     )
-    private String messageFilePath;
+    private Path messageFilePath;
 
     @Parameter(
             names = {"--server-host"},
