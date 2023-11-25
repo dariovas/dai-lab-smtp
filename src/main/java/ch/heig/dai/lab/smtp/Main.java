@@ -16,15 +16,10 @@ public class Main {
 
         SMTPClient client = new SMTPClient();
         List<Group> groups = new ArrayList<Group>();
-        Message message = new Message("Meeting2", "Test 122 \n teojj");
+
         for(int i = 0; i < nbGroups; ++i){
-            groups.add(new Group(JsonReader.getVictim()));
-            client.send(groups.get(i).getSender(), groups.get(i).getReceiver(), message);
+            groups.add(new Group(JsonReader.getVictim(), JsonReader.getMessage()));
+            client.send(groups.get(i).getSender(), groups.get(i).getReceiver(), groups.get(i).getMessage());
         }
-
-
-
-
-
     }
 }

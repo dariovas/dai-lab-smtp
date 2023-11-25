@@ -10,8 +10,9 @@ public class Group {
     private List<Victim> members = new ArrayList<Victim>();
     private List<Victim> receivers = new ArrayList<>();
     private Victim sender = new Victim();
+    private Message message = new Message();
 
-    Group(List<Victim> victims){
+    Group(List<Victim> victims, List<Message> messages){
         Random rand = new Random();
 
         int numberOfElements = rand.nextInt(MIN_GROUP_MEMBERS,MAX_GROUP_MEMBERS);
@@ -25,6 +26,8 @@ public class Group {
         sender = members.get(0);
         receivers = members;
         receivers.remove(0);
+
+        message = messages.get(rand.nextInt(messages.size()));
     }
 
     public List<Victim> getMembers() {
@@ -35,7 +38,13 @@ public class Group {
         return sender;
     }
 
-    public List<Victim> getReceiver() {return receivers;}
+    public Message getMessage(){
+        return message;
+    }
+
+    public List<Victim> getReceiver() {
+        return receivers;
+    }
 
     public static String getReceiversEmail(List<Victim> receivers){
         String output = "";
