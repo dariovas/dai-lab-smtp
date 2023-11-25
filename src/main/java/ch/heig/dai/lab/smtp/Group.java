@@ -19,9 +19,13 @@ public class Group {
     private Message message = new Message();
 
     Group(List<Victim> victims, List<Message> messages){
+        if(victims.isEmpty() && messages.isEmpty()){
+            throw new RuntimeException("Victim or Message files are empty.");
+        }
+
         Random rand = new Random();
 
-        int numberOfElements = rand.nextInt(MIN_GROUP_MEMBERS,MAX_GROUP_MEMBERS);
+        int numberOfElements = rand.nextInt(MIN_GROUP_MEMBERS,MAX_GROUP_MEMBERS + 1);
 
         for (int i = 0; i < numberOfElements; i++) {
             int randomIndex = rand.nextInt(victims.size());
@@ -41,12 +45,12 @@ public class Group {
     }
 
     public static String getReceiversEmail(List<Victim> receivers){
-        String output = "";
+        StringBuilder output = new StringBuilder();
 
         for(Victim receiver : receivers){
-            output += receiver.getEmail() + ", ";
+            output.append(receiver.getEmail()).append(", ");
         }
 
-        return output;
+        return output.toString();
     }
 }

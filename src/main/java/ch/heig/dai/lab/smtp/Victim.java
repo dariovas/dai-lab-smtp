@@ -1,5 +1,10 @@
 package ch.heig.dai.lab.smtp;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class Victim {
     private String email;
 
@@ -8,13 +13,5 @@ public class Victim {
     }
 
     public Victim() {
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 }

@@ -13,8 +13,12 @@ public class Main {
         List<Group> groups = new ArrayList<Group>();
         JsonReader reader = new JsonReader();
 
-        for(int i = 0; i < arguments.getNbGroups() && arguments.getMessageFilePath() != null && arguments.getVictimFilePath() != null; ++i){
-            groups.add(new Group(reader.getVictim(arguments.getVictimFilePath()), reader.getMessage(arguments.getMessageFilePath())));
+
+        for(int i = 0; i < arguments.getNbGroups(); ++i){
+            var victimList = reader.getVictim(arguments.getVictimFilePath());
+            var messageList = reader.getMessage(arguments.getMessageFilePath());
+
+            groups.add(new Group(victimList, messageList));
             client.send(groups.get(i).getSender(), groups.get(i).getReceiver(), groups.get(i).getMessage());
         }
     }
