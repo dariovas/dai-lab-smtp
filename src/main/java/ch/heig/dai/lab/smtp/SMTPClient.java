@@ -20,7 +20,7 @@ public class SMTPClient {
     }
     public void send(Victim sender, List<Victim> receivers, Message message) {
         // Establish TCP Connection
-        log.debug("Establishing connection with {}:{}", SERVER_ADDRESS, SERVER_PORT);
+        log.info("Establishing connection with {}:{}", SERVER_ADDRESS, SERVER_PORT);
 
         try (Socket clientSocket = new Socket(SERVER_ADDRESS, SERVER_PORT)) {
             BufferedReader in = new BufferedReader(
@@ -30,68 +30,39 @@ public class SMTPClient {
                     new OutputStreamWriter(clientSocket.getOutputStream(),
                             StandardCharsets.UTF_8));
 
-            log.debug("Connection established");
+            log.info("Connection established");
+            readInfo(in);
 
-            do {
-                System.out.println(in.readLine());
+            sendInfo(out, "HELO heig-vd.ch");
+            readInfo(in);
 
-                sendInfo(out, "HELO heig-vd.ch");
-                //out.write("HELO heig-vd.ch\n");
-                //out.flush();
-                System.out.println(in.readLine());
+            sendInfo(out, "MAIL FROM: <" + sender.getEmail() + ">");
+            readInfo(in);
 
-                sendInfo(out,"MAIL FROM: <"+ sender.getEmail() + ">" );
-                //out.write("MAIL FROM: <"+ sender.getEmail() + ">\n");
-                //out.flush();
-                System.out.println(in.readLine());
+            for (Victim receiver : receivers) {
+                sendInfo(out, "RCPT TO: <" + receiver.getEmail() + ">");
+                readInfo(in);
+            }
+            sendInfo(out, "DATA");
+            readInfo(in);
 
+            var data = new StringBuilder();
+            data.append("Content-Type: text/plain; charset=UTF-8\n");
+            data.append("From: <").append(sender.getEmail()).append(">\n");
+            data.append("To: <").append(Group.getReceiversEmail(receivers)).append(">\n");
+            data.append("Data: ").append(LocalTime.now()).append("\n");
+            data.append("Subject: ").append(message.getSubject()).append("\n\n");
+            data.append(message.getBody()).append("\n");
+            data.append("\r\n.\r");
 
-                for(Victim receiver : receivers) {
-                    sendInfo(out, "RCPT TO: <" + receiver.getEmail() + ">");
-                    //out.write("RCPT TO: <" + receiver.getEmail() + ">\n");
-                    //out.flush();
-                    System.out.println(in.readLine());
-                }
+            sendInfo(out, data.toString());
+            readInfo(in);
 
-
-                sendInfo(out, "DATA");
-                //out.write("DATA\n");
-                //out.flush();
-                System.out.println(in.readLine());
-
-                var data = new StringBuilder();
-                data.append("Content-Type: text/plain; charset=UTF-8\n");
-                data.append("From: <").append(sender.getEmail()).append(">\n");
-                data.append("To: <").append(Group.getReceiversEmail(receivers)).append(">\n");
-                data.append("Data: ").append(LocalTime.now()).append("\n");
-                data.append("Subject: ").append(message.getSubject()).append("\n\n");
-                data.append(message.getBody()).append("\n");
-                data.append("\r\n.\r");
-
-                sendInfo(out, data.toString());
-
-                /*
-                out.write("Date: Thu, 23 November 2023 20:25\n" +
-                        "From: " + sender.getEmail() + "\n" +
-                        "Subject: " + message.getSubject() + "\n" +
-                        "To: " + Group.getReceiversEmail(receivers)  + "\n" +
-                        "\n" +
-                        message.getBody() + "\r\n" +
-                        ".\r\n");
-                out.flush();
-                */
-                System.out.println(in.readLine());
-
-                sendInfo(out, "QUIT");
-                //out.write("QUIT\n");
-                //out.flush();
-                System.out.println(in.readLine());
-
-
-            }while(clientSocket.isClosed());
+            sendInfo(out, "QUIT");
+            readInfo(in);
         }
         catch(IOException e){
-            System.out.println("Client: exc.: " + e);
+            log.error("Client: exc.:" + e);
         }
     }
 
@@ -99,5 +70,21 @@ public class SMTPClient {
         log.info(info);
         out.write(info + "\n");
         out.flush();
+    }
+
+    private void readInfo(BufferedReader in) throws IOException {
+        String response;
+        while ((response = in.readLine()) != null){
+            log.info(response);
+
+            // According to the SMTP protocol documentation, the error code are upper or equal to 400.
+            if(Integer.parseInt(response.substring(0, 3)) >= 400){
+                throw new RuntimeException(response);
+            }
+
+            if(response.charAt(3) == ' '){
+                break;
+            }
+        }
     }
 }
