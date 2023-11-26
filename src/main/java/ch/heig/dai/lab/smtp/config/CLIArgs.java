@@ -3,8 +3,11 @@ package ch.heig.dai.lab.smtp.config;
 import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameter;
 import lombok.Getter;
+import lombok.ToString;
+
 import java.nio.file.Path;
 
+@ToString
 @Getter
 public class CLIArgs {
     @Parameter(

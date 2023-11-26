@@ -1,10 +1,12 @@
 package ch.heig.dai.lab.smtp;
 
 import lombok.Getter;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+
 
 public class Group {
     private final int MIN_GROUP_MEMBERS = 2;
