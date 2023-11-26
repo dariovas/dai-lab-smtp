@@ -1,5 +1,7 @@
-package ch.heig.dai.lab.smtp;
+package ch.heig.dai.lab.smtp.config;
 
+import ch.heig.dai.lab.smtp.Message;
+import ch.heig.dai.lab.smtp.Victim;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.*;
 

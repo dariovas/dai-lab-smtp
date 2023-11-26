@@ -1,5 +1,8 @@
 package ch.heig.dai.lab.smtp;
 
+import ch.heig.dai.lab.smtp.config.CLIArgs;
+import ch.heig.dai.lab.smtp.config.JsonReader;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package ch.heig.dai.lab.smtp;
+package ch.heig.dai.lab.smtp.config;
 
 import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameter;
@@ -42,7 +42,7 @@ public class CLIArgs {
     )
     private int serverPort = 25;
 
-    CLIArgs(String ... args){
+    public CLIArgs(String ... args){
         JCommander.newBuilder()
                 .addObject(this)
                 .build()
