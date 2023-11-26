@@ -1,11 +1,14 @@
 package ch.heig.dai.lab.smtp;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.io.*;
 import java.net.Socket;
 import java.nio.charset.StandardCharsets;
 
 import java.util.List;
 
+@Slf4j
 public class SMTPClient {
     final String SERVER_ADDRESS;
     final int SERVER_PORT;
@@ -15,6 +18,9 @@ public class SMTPClient {
         this.SERVER_PORT = serverPort;
     }
     public void send(Victim sender, List<Victim> receivers, Message message) {
+        // Establish TCP Connection
+        log.debug("Establishing connection with {}:{}", SERVER_ADDRESS, SERVER_PORT);
+
         try (Socket clientSocket = new Socket(SERVER_ADDRESS, SERVER_PORT)) {
             BufferedReader in = new BufferedReader(
                     new InputStreamReader(clientSocket.getInputStream(),
@@ -23,25 +29,31 @@ public class SMTPClient {
                     new OutputStreamWriter(clientSocket.getOutputStream(),
                             StandardCharsets.UTF_8));
 
+            log.debug("Connection established");
 
             do {
                 System.out.println(in.readLine());
-                out.write("HELO heig-vd.ch\n");
-                out.flush();
+
+                sendInfo(out, "HELO heig-vd.ch");
+                //out.write("HELO heig-vd.ch\n");
+                //out.flush();
                 System.out.println(in.readLine());
 
-                out.write("MAIL FROM: <"+ sender.getEmail() + ">\n");
-                out.flush();
+                sendInfo(out,"MAIL FROM: <"+ sender.getEmail() + ">" );
+                //out.write("MAIL FROM: <"+ sender.getEmail() + ">\n");
+                //out.flush();
                 System.out.println(in.readLine());
+
                 for(Victim receiver : receivers) {
-                    out.write("RCPT TO: <" + receiver.getEmail() + ">\n");
-                    out.flush();
+                    sendInfo(out, "RCPT TO: <" + receiver.getEmail() + ">");
+                    //out.write("RCPT TO: <" + receiver.getEmail() + ">\n");
+                    //out.flush();
                     System.out.println(in.readLine());
                 }
 
-
-                out.write("DATA\n");
-                out.flush();
+                sendInfo(out, "DATA");
+                //out.write("DATA\n");
+                //out.flush();
                 System.out.println(in.readLine());
 
                 out.write("Date: Thu, 23 November 2023 20:25\n" +
@@ -54,18 +66,22 @@ public class SMTPClient {
                 out.flush();
                 System.out.println(in.readLine());
 
-                out.write("QUIT\n");
-                out.flush();
+                sendInfo(out, "QUIT");
+                //out.write("QUIT\n");
+                //out.flush();
                 System.out.println(in.readLine());
 
 
             }while(clientSocket.isClosed());
-
-
-
         }
         catch(IOException e){
             System.out.println("Client: exc.: " + e);
         }
+    }
+
+    private void sendInfo(BufferedWriter out, String info) throws IOException {
+        log.info(info);
+        out.write(info + "\n");
+        out.flush();
     }
 }
