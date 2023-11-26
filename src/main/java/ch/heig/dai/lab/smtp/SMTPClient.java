@@ -6,6 +6,7 @@ import java.io.*;
 import java.net.Socket;
 import java.nio.charset.StandardCharsets;
 
+import java.time.LocalTime;
 import java.util.List;
 
 @Slf4j
@@ -44,6 +45,7 @@ public class SMTPClient {
                 //out.flush();
                 System.out.println(in.readLine());
 
+
                 for(Victim receiver : receivers) {
                     sendInfo(out, "RCPT TO: <" + receiver.getEmail() + ">");
                     //out.write("RCPT TO: <" + receiver.getEmail() + ">\n");
@@ -51,11 +53,24 @@ public class SMTPClient {
                     System.out.println(in.readLine());
                 }
 
+
                 sendInfo(out, "DATA");
                 //out.write("DATA\n");
                 //out.flush();
                 System.out.println(in.readLine());
 
+                var data = new StringBuilder();
+                data.append("Content-Type: text/plain; charset=UTF-8\n");
+                data.append("From: <").append(sender.getEmail()).append(">\n");
+                data.append("To: <").append(Group.getReceiversEmail(receivers)).append(">\n");
+                data.append("Data: ").append(LocalTime.now()).append("\n");
+                data.append("Subject: ").append(message.getSubject()).append("\n\n");
+                data.append(message.getBody()).append("\n");
+                data.append("\r\n.\r");
+
+                sendInfo(out, data.toString());
+
+                /*
                 out.write("Date: Thu, 23 November 2023 20:25\n" +
                         "From: " + sender.getEmail() + "\n" +
                         "Subject: " + message.getSubject() + "\n" +
@@ -64,6 +79,7 @@ public class SMTPClient {
                         message.getBody() + "\r\n" +
                         ".\r\n");
                 out.flush();
+                */
                 System.out.println(in.readLine());
 
                 sendInfo(out, "QUIT");
