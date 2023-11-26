@@ -49,8 +49,12 @@ public class Group {
     public static String getReceiversEmail(List<Victim> receivers){
         StringBuilder output = new StringBuilder();
 
-        for(Victim receiver : receivers){
-            output.append(receiver.getEmail()).append(", ");
+        for(int i = 0; i < receivers.size(); ++i){
+            if(i > 0){
+                output.append(", ");
+            }
+
+            output.append(receivers.get(i).getEmail());
         }
 
         return output.toString();
