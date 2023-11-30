@@ -6,13 +6,16 @@ import java.io.*;
 import java.net.Socket;
 import java.nio.charset.StandardCharsets;
 
+import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Slf4j
 public class SMTPClient {
     final String SERVER_ADDRESS;
     final int SERVER_PORT;
+    DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm:ss");
 
     SMTPClient(String serverAddress, int serverPort){
         this.SERVER_ADDRESS = serverAddress;
@@ -51,7 +54,7 @@ public class SMTPClient {
             data.append("Content-Type: text/plain; charset=UTF-8\n");
             data.append("From: <").append(sender.getEmail()).append(">\n");
             data.append("To: <").append(Group.getReceiversEmail(receivers)).append(">\n");
-            data.append("Data: ").append(LocalTime.now()).append("\n");
+            data.append("Date: ").append(LocalDateTime.now().format(dateFormat)).append("\n");
             data.append("Subject: ").append(message.getSubject()).append("\n\n");
             data.append(message.getBody()).append("\n");
             data.append("\r\n.\r");

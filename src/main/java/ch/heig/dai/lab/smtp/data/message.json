@@ -1,10 +1,10 @@
 [
   {
-    "subject": "Réunion importante",
+    "subject": "Réunion importante\uD83D\uDE08",
     "body": "Cher collaborateur, nous avons une réunion très importante prévue demain à 10h. Assurez-vous d'être présent. Merci."
   },
   {
-    "subject": "Nouvelle offre spéciale",
+    "subject": "Nouvelle offre spéciale\uD83D\uDE08",
     "body": "Bonjour, nous sommes ravis de vous informer qu'une nouvelle offre spéciale est disponible dès aujourd'hui. Ne manquez pas cette opportunité exclusive!"
   },
   {
@@ -141,7 +141,7 @@
   },
   {
     "subject": "Annonce de film",
-    "body": "Nouveau film à l'affiche : 'Les Aventures Épiques d'une Chaise de Bureau'. Un thriller captivant sur le bureau le plus courageux du monde!"
+    "body": "Nouveau film à l'affiche : 'Les Aventures Épiques d'une Chaise de Bureau'. Un thriller captivant sur le bureau le plus courageux du monde!\uD83D\uDE08"
   },
   {
     "subject": "Recette de café",
@@ -169,7 +169,7 @@
   },
   {
     "subject": "Annonce de jeu",
-    "body": "Nouveau jeu passionnant disponible! 'Les Aventures Culinaires du Chat Gourmet'. Aidez le chat à préparer des repas délicieux sans renverser le lait!"
+    "body": "Nouveau jeu passionnant disponible! 'Les Aventures Culinaires du Chat Gourmet'. Aidez le chat à préparer des repas délicieux sans renverser le lait!\uD83D\uDE08"
   },
   {
     "subject": "Astuce de bonheur",
@@ -197,7 +197,7 @@
   },
   {
     "subject": "Astuce beauté",
-    "body": "Astuce beauté : souriez souvent. C'est le meilleur maquillage que vous puissiez porter, et c'est totalement gratuit!"
+    "body": "Astuce beauté : souriez souvent. C'est le meilleur maquillage que vous puissiez porter, et c'est totalement gratuit!\n\uD83D\uDE08"
   },
   {
     "subject": "Question philosophique",
