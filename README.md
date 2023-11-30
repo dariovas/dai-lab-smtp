@@ -3,7 +3,7 @@
 
 ## Description
 
-In this github you will find a program for sending mail.
+In this GitHub you will find a program for sending mail.
 
 Emails are sent using the SMTP protocol.
 We have a list of victims.
@@ -13,7 +13,7 @@ The first victim in a group is the sender, the others are the recipients.
 To use this code, you need an SMTP server.
 You can find [here](#mock-server-setup) how to set up a local SMTP Server.
 
-Prerequisites : docker, maeven and java.
+Prerequisites : docker, maven and java.
 
 ## Mock server setup
 For using this code you need an SMTP server.
@@ -53,7 +53,7 @@ To configure the prank mail contents, you need to fill in a JSON file as shown i
 ```
 
 ### Tool configuration 
-Firstly, you need to package the application with maeven :
+Firstly, you need to package the application with maven :
 ```
 mvn clean compile assembly:single
 ```
@@ -72,14 +72,16 @@ The arguments are listed below :
 
 Full example :
 ```
-java -jar ./target/dai-lab-smtp-1.0.jar -g 3 -v ./src/main/java/ch/heig/dai/lab/smtp/data/victim.json -m ./src/main/java/ch/heig/dai/lab/smtp/data/message.json --server-port 1025```
+java -jar ./target/dai-lab-smtp-1.0.jar -g 3 -v ./src/main/java/ch/heig/dai/lab/smtp/data/victim.json -m ./src/main/java/ch/heig/dai/lab/smtp/data/message.json --server-port 1025
 ```
 
 ## Technical details
-In this application, we use these specific librairies :
+In this application, we use these specific libraries :
 - jackson-databind --> to read the JSON file
 - logback-classic --> simple logging facade for Java applications
 - lombok --> to auto generate the getter and setter and also the logger in our classes.
 - jcommander --> to parse the CLI arguments
 
 ### Class diagram
+
+### Client dialog
