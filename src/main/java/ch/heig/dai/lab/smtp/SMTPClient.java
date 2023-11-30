@@ -22,13 +22,14 @@ public class SMTPClient {
         // Establish TCP Connection
         log.info("Establishing connection with {}:{}", SERVER_ADDRESS, SERVER_PORT);
 
-        try (Socket clientSocket = new Socket(SERVER_ADDRESS, SERVER_PORT)) {
-            BufferedReader in = new BufferedReader(
-                    new InputStreamReader(clientSocket.getInputStream(),
-                            StandardCharsets.UTF_8));
-            BufferedWriter out = new BufferedWriter(
-                    new OutputStreamWriter(clientSocket.getOutputStream(),
-                            StandardCharsets.UTF_8));
+        try (Socket clientSocket = new Socket(SERVER_ADDRESS, SERVER_PORT);
+             BufferedReader in = new BufferedReader(
+                new InputStreamReader(clientSocket.getInputStream(),
+                        StandardCharsets.UTF_8));
+             BufferedWriter out = new BufferedWriter(
+                     new OutputStreamWriter(clientSocket.getOutputStream(),
+                             StandardCharsets.UTF_8));) {
+
 
             log.info("Connection established");
             readInfo(in);

@@ -1,26 +1,210 @@
 [
   {
-    "subject": "Test numero 0",
-    "body": "Hello this is a test message numero 0."
+    "subject": "Réunion importante",
+    "body": "Cher collaborateur, nous avons une réunion très importante prévue demain à 10h. Assurez-vous d'être présent. Merci."
   },
   {
-    "subject": "Test numero 1",
-    "body": "Hello this is a test message numero 1."
+    "subject": "Nouvelle offre spéciale",
+    "body": "Bonjour, nous sommes ravis de vous informer qu'une nouvelle offre spéciale est disponible dès aujourd'hui. Ne manquez pas cette opportunité exclusive!"
   },
   {
-    "subject": "Test numero 2",
-    "body": "Hello this is a test message numero 2."
+    "subject": "Confirmation de réservation",
+    "body": "Bonjour, votre réservation pour le séjour du 15 au 20 décembre a été confirmée. Nous sommes impatients de vous accueillir!"
   },
   {
-    "subject": "Test numero 3",
-    "body": "Hello this is a test message numero 3."
+    "subject": "Mise à jour du système",
+    "body": "Cher utilisateur, veuillez noter qu'une mise à jour importante du système est prévue le 5 janvier. Veuillez sauvegarder vos données."
   },
   {
-    "subject": "Test numero 4",
-    "body": "Hello this is a test message numero 4."
+    "subject": "Joyeux anniversaire!",
+    "body": "Joyeux anniversaire! Nous vous souhaitons une journée remplie de bonheur et de moments spéciaux. Profitez de cette journée à fond!"
   },
   {
-    "subject": "Test numero 5",
-    "body": "Hello this is a test message numero 5."
+    "subject": "Invitation à un événement exclusif",
+    "body": "Vous êtes cordialement invité(e) à notre événement exclusif le 10 février. Réservez votre place dès maintenant pour une expérience inoubliable!"
+  },
+  {
+    "subject": "Blague du jour",
+    "body": "Pourquoi les programmeurs préfèrent-ils le café froid? Parce qu'ils ont déjà perdu leur Java!"
+  },
+  {
+    "subject": "Annonce hilarante",
+    "body": "Bonjour, devinez quoi? Les poules qui pondent des œufs sont-elles des egg-sperts ou des œuficionados?"
+  },
+  {
+    "subject": "Vente flash",
+    "body": "Ne clignez pas des yeux, vous pourriez manquer notre vente flash! Des réductions incroyables vous attendent. Magasinez maintenant!"
+  },
+  {
+    "subject": "Conseils pour rester zen",
+    "body": "Stressé(e)? Essayez cette astuce : respirez profondément, fermez les yeux, et imaginez que vous êtes sur une plage tropicale sans e-mails à vérifier!"
+  },
+  {
+    "subject": "Annonce de produit révolutionnaire",
+    "body": "Découvrez notre dernier produit révolutionnaire qui rendra vos voisins jaloux! C'est tellement incroyable que même votre café du matin en sera étonné."
+  },
+  {
+    "subject": "Événement caritatif",
+    "body": "Participez à notre événement caritatif le 20 mars pour soutenir une cause noble. Ensemble, faisons la différence!"
+  },
+  {
+    "subject": "Message du patron",
+    "body": "Bonjour équipe, je voulais juste dire que vous êtes tous fantastiques. Continuez le bon travail et n'oubliez pas de prendre des pauses café occasionnelles!"
+  },
+  {
+    "subject": "Défi de productivité",
+    "body": "Prêt(e) pour un défi? Essayez de rester concentré(e) pendant 30 minutes sans vous laisser distraire. À vos marques, prêt(e)s, partez!"
+  },
+  {
+    "subject": "Recette du chef",
+    "body": "Voici une recette spéciale du chef : macarons au chocolat. Parfait pour égayer votre journée avec une touche sucrée!"
+  },
+  {
+    "subject": "Rappel d'anniversaire",
+    "body": "N'oubliez pas de souhaiter un joyeux anniversaire à votre collègue aujourd'hui. Une petite célébration au bureau ne fait jamais de mal!"
+  },
+  {
+    "subject": "Astuce santé",
+    "body": "Une astuce pour rester en bonne santé : riez tous les jours. C'est le meilleur exercice pour le cœur!"
+  },
+  {
+    "subject": "Annonce de vacances",
+    "body": "Il est temps de planifier vos vacances! Découvrez nos offres spéciales pour des destinations de rêve. Parce que vous le méritez bien."
+  },
+  {
+    "subject": "Question existentielle",
+    "body": "Si un train part de Paris à 10h en direction de Marseille, et un autre train part de Marseille à 11h en direction de Paris, pourquoi s'inquiéter? C'est juste un exemple d'optimisme!"
+  },
+  {
+    "subject": "Remise en forme",
+    "body": "Prêt(e) à vous remettre en forme? Joignez-vous à notre cours de yoga gratuit tous les mercredis. La flexibilité, c'est la clé du bonheur!"
+  },
+  {
+    "subject": "Conseils pour la productivité",
+    "body": "Conseil du jour : faites la tâche la plus difficile en premier. Si manger un crapaud est votre tâche difficile, faites-le tôt le matin!"
+  },
+  {
+    "subject": "Annonce de réduction",
+    "body": "Grande nouvelle! Nous offrons une réduction exclusive de 20% à nos clients fidèles. Utilisez le code FIDELITE20 lors du paiement. Valable jusqu'au 31 mai."
+  },
+  {
+    "subject": "Inspiration quotidienne",
+    "body": "Rappelez-vous : chaque jour est une nouvelle chance de changer votre vie. Ou au moins de changer votre statut sur les réseaux sociaux!"
+  },
+  {
+    "subject": "Conseils de voyage",
+    "body": "Explorer de nouveaux horizons? N'oubliez pas de faire une liste, puis de la perdre, puis de la refaire, puis de la perdre à nouveau. C'est ça, l'aventure!"
+  },
+  {
+    "subject": "Révélation secrète",
+    "body": "Nous avons un secret à partager : les loutres tiennent des mains pour ne pas dériver pendant leur sommeil. Si mignon!"
+  },
+  {
+    "subject": "Cours de danse",
+    "body": "Prêt(e) à bouger? Rejoignez notre cours de danse tous les vendredis. Apprenez à danser comme personne ne vous regarde (mais assurez-vous que personne ne vous regarde vraiment)!"
+  },
+  {
+    "subject": "Annonce surprise",
+    "body": "Surprise! Nous avons ajouté un cadeau spécial à votre prochaine commande. Parce que vous êtes génial(e) et vous méritez d'être surpris(e)!"
+  },
+  {
+    "subject": "Devinez quoi?",
+    "body": "Devinez quoi? Les pingouins adorent les films d'espionnage. Ils se considèrent comme les James Bond du monde animal!"
+  },
+  {
+    "subject": "Recette de smoothie",
+    "body": "Besoin d'une dose de fraîcheur? Essayez notre nouvelle recette de smoothie aux fruits tropicaux. C'est comme une explosion de vacances dans votre bouche!"
+  },
+  {
+    "subject": "Pensée du jour",
+    "body": "Pensée du jour : si la marche était saine, le facteur serait immortel. Alors, pourquoi ne pas prendre une pause pour une marche rapide aujourd'hui?"
+  },
+  {
+    "subject": "Conseils de jardinage",
+    "body": "Amoureux(se) du jardinage? Astuce : parlez à vos plantes. Ça les fait pousser plus vite, surtout si vous leur racontez des blagues!"
+  },
+  {
+    "subject": "Annonce de livre",
+    "body": "Découvrez notre dernière recommandation de lecture : 'Le Guide du Bonheur selon les Chats'. Parce que parfois, il suffit de se comporter comme un chat pour être vraiment heureux!"
+  },
+  {
+    "subject": "Message d'encouragement",
+    "body": "Vous êtes plus fort(e) que vous ne le pensez, plus courageux(se) que vous ne le paraissez, et plus intelligent(e) que vous ne le montrez. Continuez à briller!"
+  },
+  {
+    "subject": "Blague du jour",
+    "body": "Pourquoi les plongeurs plongent-ils toujours en arrière et jamais en avant? Parce que sinon ils tombent toujours dans le bateau!"
+  },
+  {
+    "subject": "Défi créatif",
+    "body": "Défi créatif du jour : dessinez un pingouin jonglant avec des glaces. C'est difficile? Eh bien, les pingouins pensent que c'est facile!"
+  },
+  {
+    "subject": "Annonce de film",
+    "body": "Nouveau film à l'affiche : 'Les Aventures Épiques d'une Chaise de Bureau'. Un thriller captivant sur le bureau le plus courageux du monde!"
+  },
+  {
+    "subject": "Recette de café",
+    "body": "Amateur(trice) de café? Essayez notre nouvelle recette : café avec une cuillère de rêves, une pincée de motivation, et une touche d'amour. Le secret pour une journée parfaite!"
+  },
+  {
+    "subject": "Motivation du lundi",
+    "body": "Le lundi est une nouvelle chance de faire des choix sains. Choisissez de rire, choisissez d'aimer, choisissez d'être heureux(se). Ou choisissez simplement une tasse de café forte!"
+  },
+  {
+    "subject": "Astuce technologique",
+    "body": "Besoin d'une pause technologique? Mettez votre téléphone en mode avion et rêvez d'un monde sans notifications. Vous serez surpris(e) de la tranquillité!"
+  },
+  {
+    "subject": "Annonce de podcast",
+    "body": "Découvrez notre nouveau podcast : 'Les Histoires Bizarres du Monde'. Parce que parfois, la réalité dépasse la fiction, et c'est plutôt amusant!"
+  },
+  {
+    "subject": "Blague classique",
+    "body": "Pourquoi les oiseaux ne portent-ils jamais de lunettes? Parce qu'ils ont déjà un bec!"
+  },
+  {
+    "subject": "Message de chat",
+    "body": "Message de votre chat : 'Je vous aime, mais laissez-moi dormir. La sieste est sacrée.'"
+  },
+  {
+    "subject": "Annonce de jeu",
+    "body": "Nouveau jeu passionnant disponible! 'Les Aventures Culinaires du Chat Gourmet'. Aidez le chat à préparer des repas délicieux sans renverser le lait!"
+  },
+  {
+    "subject": "Astuce de bonheur",
+    "body": "Astuce de bonheur : dansez comme si personne ne regardait. Même si c'est dans votre salon et que votre chat vous regarde bizarrement. C'est votre moment de gloire!"
+  },
+  {
+    "subject": "Rappel de rendez-vous",
+    "body": "Rappel amical : votre rendez-vous chez le coiffeur est demain. Préparez-vous à briller comme une étoile!"
+  },
+  {
+    "subject": "Annonce de produit étonnant",
+    "body": "Préparez-vous à être étonné(e)! Découvrez notre nouveau produit révolutionnaire qui transforme l'eau en chocolat. Oui, vous avez bien lu, en chocolat!"
+  },
+  {
+    "subject": "Message de motivation",
+    "body": "Vous êtes capable de bien plus que vous ne le croyez. Si les escargots peuvent voyager, vous pouvez atteindre vos objectifs!"
+  },
+  {
+    "subject": "Blague culinaire",
+    "body": "Pourquoi les tomates rougissent-elles? Parce qu'elles voient la salade se déshabiller!"
+  },
+  {
+    "subject": "Annonce de spectacle",
+    "body": "Réservez vos places pour notre nouveau spectacle : 'Les Cascades Épiques de la Chaise de Bureau'. Vous ne verrez plus jamais votre chaise de la même manière!"
+  },
+  {
+    "subject": "Astuce beauté",
+    "body": "Astuce beauté : souriez souvent. C'est le meilleur maquillage que vous puissiez porter, et c'est totalement gratuit!"
+  },
+  {
+    "subject": "Question philosophique",
+    "body": "Si un arbre tombe dans une forêt et que personne n'est là pour l'entendre, est-ce qu'il fait du bruit? Et si cet arbre était un musicien, jouerait-il de la musique?"
+  },
+  {
+    "subject": "Annonce de cours en ligne",
+    "body": "Apprenez quelque chose de nouveau! Inscrivez-vous à notre cours en ligne sur 'L'Art de Jongler avec des Bananes'. Parce que vous n'avez jamais su que vous en aviez besoin!"
   }
 ]
