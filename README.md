@@ -2,7 +2,7 @@
 ***
 
 ## Description
-The goal of this repo is to create a simple
+The goal of this repo is from a file containing messages and a file containing victim emails to send prank emails to victims.
 
 if people exploring GitHub find your repo, without a prior knowledge of the API course, they should be able to understand what your repo is all about and whether they should look at it more closely.
 
