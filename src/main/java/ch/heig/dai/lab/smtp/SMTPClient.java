@@ -61,7 +61,7 @@ public class SMTPClient {
             data.append("Content-Type: text/plain; charset=UTF-8\n");
             data.append("From: <").append(sender.getEmail()).append(">\n");
             data.append("To: <").append(Group.getReceiversEmail(receivers)).append(">\n");
-            data.append("Date: ").append(LocalDateTime.now(ZoneId.of("Europe/Zurich")).format(dateFormat)).append("\n");
+            data.append("Date: ").append(LocalDateTime.now().format(dateFormat)).append("\n");
             data.append("Subject: ").append(message.getSubject()).append("\n\n");
             data.append(message.getBody()).append("\n");
             data.append("\r\n.\r");
