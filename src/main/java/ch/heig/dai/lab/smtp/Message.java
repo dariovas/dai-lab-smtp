@@ -14,7 +14,5 @@ public class Message {
         this.body = body;
     }
 
-    public Message(){
-
-    }
+    public Message(){}
 }

@@ -35,6 +35,8 @@ To connect to the SMTP server :
 http://localhost:1025
 ```
 
+
+
 ## Tool configuration and usage
 ### Configure recipients and senders
 To configure the recipients and the senders, you need to fill in a JSON file as shown in the example below :

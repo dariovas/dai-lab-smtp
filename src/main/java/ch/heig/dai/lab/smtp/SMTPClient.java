@@ -7,20 +7,26 @@ import java.net.Socket;
 import java.nio.charset.StandardCharsets;
 
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Slf4j
 public class SMTPClient {
-    final String SERVER_ADDRESS;
-    final int SERVER_PORT;
-    DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm:ss");
+    private final String SERVER_ADDRESS;
+    private final int SERVER_PORT;
+    private final DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm:ss");
 
     SMTPClient(String serverAddress, int serverPort){
         this.SERVER_ADDRESS = serverAddress;
         this.SERVER_PORT = serverPort;
     }
+
+    /***
+     * Sends a prank message to a group of email addresses.
+     * @param sender sender of the email
+     * @param receivers receivers of the email
+     * @param message prank message to send
+     */
     public void send(Victim sender, List<Victim> receivers, Message message) {
         // Establish TCP Connection
         log.info("Establishing connection with {}:{}", SERVER_ADDRESS, SERVER_PORT);
@@ -31,26 +37,26 @@ public class SMTPClient {
                         StandardCharsets.UTF_8));
              BufferedWriter out = new BufferedWriter(
                      new OutputStreamWriter(clientSocket.getOutputStream(),
-                             StandardCharsets.UTF_8));) {
+                             StandardCharsets.UTF_8))) {
 
 
             log.info("Connection established");
-            readInfo(in);
+            checkResponse(in);
 
             sendInfo(out, "HELO heig-vd.ch");
-            readInfo(in);
+            checkResponse(in);
 
             sendInfo(out, "MAIL FROM: <" + sender.getEmail() + ">");
-            readInfo(in);
+            checkResponse(in);
 
             for (Victim receiver : receivers) {
                 sendInfo(out, "RCPT TO: <" + receiver.getEmail() + ">");
-                readInfo(in);
+                checkResponse(in);
             }
             sendInfo(out, "DATA");
-            readInfo(in);
+            checkResponse(in);
 
-            var data = new StringBuilder();
+            StringBuilder data = new StringBuilder();
             data.append("Content-Type: text/plain; charset=UTF-8\n");
             data.append("From: <").append(sender.getEmail()).append(">\n");
             data.append("To: <").append(Group.getReceiversEmail(receivers)).append(">\n");
@@ -60,23 +66,34 @@ public class SMTPClient {
             data.append("\r\n.\r");
 
             sendInfo(out, data.toString());
-            readInfo(in);
+            checkResponse(in);
 
             sendInfo(out, "QUIT");
-            readInfo(in);
+            checkResponse(in);
         }
         catch(IOException e){
             log.error("Client: exc.:" + e);
         }
     }
 
+    /***
+     * Sends the data to the SMTP server.
+     * @param out buffer writer
+     * @param info data to send
+     * @throws IOException throws an exception if there is an error during the sending operation
+     */
     private void sendInfo(BufferedWriter out, String info) throws IOException {
         log.info(info);
         out.write(info + "\n");
         out.flush();
     }
 
-    private void readInfo(BufferedReader in) throws IOException {
+    /***
+     * Checks the SMTP response of the server.
+     * @param in buffer reader
+     * @throws IOException throws an exception if the SMTP response is an error code.
+     */
+    private void checkResponse(BufferedReader in) throws IOException {
         String response;
         while ((response = in.readLine()) != null){
             log.info(response);

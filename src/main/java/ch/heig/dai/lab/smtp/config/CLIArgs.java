@@ -9,6 +9,10 @@ import java.nio.file.Path;
 
 @ToString
 @Getter
+
+/***
+ * Manage the cli arguments with the JCommander library.
+ */
 public class CLIArgs {
     @Parameter(
             names = {"-g", "--group-count"},
