@@ -30,12 +30,7 @@ To connect to the web interface you need to use this URL :
 http://localhost:1080
 ```
 
-To connect to the SMTP server :
-```
-http://localhost:1025
-```
-
-
+To connect to the SMTP server you need to use the **1025** port.
 
 ## Tool configuration and usage
 ### Configure recipients and senders
@@ -53,6 +48,7 @@ To configure the prank mail contents, you need to fill in a JSON file as shown i
     "body": "Test body."
   }
 ```
+Our json files are located [here](src/main/java/ch/heig/dai/lab/smtp/data)
 
 ### Tool configuration 
 Firstly, you need to package the application with maven :
@@ -85,5 +81,28 @@ In this application, we use these specific libraries :
 - jcommander --> to parse the CLI arguments
 
 ### Class diagram
+![diagram.png](img%2Fdiagram.png)
+We use the JSON Reader class to read user-supplied json configuration files.
+
+The group class allows us to have separate groups. Inside, we have the sender and the receivers. The latter is used to create messages and the list of receivers.
+The main PrankManager class manages the reading of JSON files, groups and the SMTP client. 
+We also store the list of all messages and victims contained in the JSON files.
 
 ### Client dialog
+![smtp_communication.png](img%2Fsmtp_communication.png)
+You can see above all the requests sent to the SMTP server from our client and the server's responses.
+
+#### It works as follows :
+
+The customer announces himself (HELO)
+
+specifies the sender (MAIL FROM: )
+
+it specifies the receivers (RCP TO : )
+
+It gives the mail data (DATA) such as sender (From), receivers (To), date (Date), subject (Subject) and mail body.
+Say it's the end (<CR><LF>.<CR><LF>)
+
+And exit the connection. (Quit)
+
+The data following DATA (From, To, Date,...) are for display only - the real sender and receivers are specified above(MAIL FROM: , RCPT TO:).
