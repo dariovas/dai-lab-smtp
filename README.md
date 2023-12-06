@@ -94,15 +94,15 @@ You can see above all the requests sent to the SMTP server from our client and t
 
 #### It works as follows :
 
-The customer announces himself (HELO)
+The customer announces himself (*HELO*)
 
-specifies the sender (MAIL FROM: )
+specifies the sender (*MAIL FROM:* )
 
-it specifies the receivers (RCP TO : )
+it specifies the receivers (*RCP TO : *)
 
-It gives the mail data (DATA) such as sender (From), receivers (To), date (Date), subject (Subject) and mail body.
-Say it's the end (<CR><LF>.<CR><LF>)
+It gives the mail data (*DATA*) such as sender (*From*), receivers (*To*), date (*Date*), subject (*Subject*) and mail body.
+Say it's the end (*<CR><LF>.<CR><LF>*)
 
-And exit the connection. (Quit)
+And exit the connection. (*Quit*)
 
-The data following DATA (From, To, Date,...) are for display only - the real sender and receivers are specified above(MAIL FROM: , RCPT TO:).
+The data following *DATA* (*From, To, Date,...*) are for display only - the real sender and receivers are specified above(*MAIL FROM:* , *RCPT TO:*).
