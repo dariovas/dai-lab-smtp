@@ -55,11 +55,12 @@ public class Group {
         StringBuilder output = new StringBuilder();
 
         for(int i = 0; i < receivers.size(); ++i){
-            if(i > 0){
-                output.append(", ");
+
+            if(i <= receivers.size() - 1 && i > 0){
+                output.append(",");
             }
 
-            output.append(receivers.get(i).getEmail());
+            output.append("<").append(receivers.get(i).getEmail()).append(">");
         }
 
         return output.toString();
