@@ -9,7 +9,6 @@ import java.util.List;
 
 @Slf4j
 public class PrankManager {
-
     private SMTPClient client;
     private List<Group> groups;
     private JsonReader reader;
