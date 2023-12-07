@@ -81,7 +81,7 @@ In this application, we use these specific libraries :
 - jcommander --> to parse the CLI arguments
 
 ### Class diagram
-![diagram.png](img%2Fdiagram.png)
+![diagram.png](figures%2Fdiagram.png)
 We use the JSON Reader class to read user-supplied json configuration files.
 
 The group class allows us to have separate groups. Inside, we have the sender and the receivers. The latter is used to create messages and the list of receivers.
@@ -89,7 +89,7 @@ The main PrankManager class manages the reading of JSON files, groups and the SM
 We also store the list of all messages and victims contained in the JSON files.
 
 ### Client dialog
-![smtp_communication.png](img%2Fsmtp_communication.png)
+![smtp_communication.png](figures%2Fsmtp_communication.png)
 You can see above all the requests sent to the SMTP server from our client and the server's responses.
 
 #### It works as follows :
